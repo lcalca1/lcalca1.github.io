@@ -1,0 +1,806 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="归纳法,欧拉公式,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="今天看《Python算法教程》的时候，遇到一个归纳法证明的问题，本来以为归纳法比较简单，但今天的这个证明还有有些开阔思路的地方。问题描述：你可以在某平面上画画一张不含任何交叉边线的图（planar）。该图周边所围成的区域与其外围（无穷大）的范围形成了一组区域（regions）。如果我们分别用V, E, F来表示图中的节点、边与区域的数量，那么欧拉公式认为在平面图中，V-E+F=2。请用归纳法证明。">
+<meta name="keywords" content="归纳法,欧拉公式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉公式的归纳证明">
+<meta property="og:url" content="https://lcalca1.github.io/2017/07/23/proof-of-euler-theorem-with-induction/index.html">
+<meta property="og:site_name" content="lca">
+<meta property="og:description" content="今天看《Python算法教程》的时候，遇到一个归纳法证明的问题，本来以为归纳法比较简单，但今天的这个证明还有有些开阔思路的地方。问题描述：你可以在某平面上画画一张不含任何交叉边线的图（planar）。该图周边所围成的区域与其外围（无穷大）的范围形成了一组区域（regions）。如果我们分别用V, E, F来表示图中的节点、边与区域的数量，那么欧拉公式认为在平面图中，V-E+F=2。请用归纳法证明。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-23T09:44:06.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="欧拉公式的归纳证明">
+<meta name="twitter:description" content="今天看《Python算法教程》的时候，遇到一个归纳法证明的问题，本来以为归纳法比较简单，但今天的这个证明还有有些开阔思路的地方。问题描述：你可以在某平面上画画一张不含任何交叉边线的图（planar）。该图周边所围成的区域与其外围（无穷大）的范围形成了一组区域（regions）。如果我们分别用V, E, F来表示图中的节点、边与区域的数量，那么欧拉公式认为在平面图中，V-E+F=2。请用归纳法证明。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lcalca1.github.io/2017/07/23/proof-of-euler-theorem-with-induction/">
+
+
+
+
+
+  <title>欧拉公式的归纳证明 | lca</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?lc_D_a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lca</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿风指引着你前进的道路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            印象
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-basic">
+          <a href="/categories/Basic/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            跬步
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-advanced">
+          <a href="/categories/Advanced/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            千里
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://lcalca1.github.io/2017/07/23/proof-of-euler-theorem-with-induction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lca">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lca">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">欧拉公式的归纳证明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T16:25:30+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Based/" itemprop="url" rel="index">
+                    <span itemprop="name">Based</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天看《Python算法教程》的时候，遇到一个归纳法证明的问题，本来以为归纳法比较简单，但今天的这个证明还有有些开阔思路的地方。问题描述：你可以在某平面上画画一张不含任何交叉边线的图（planar）。该图周边所围成的区域与其外围（无穷大）的范围形成了一组区域（regions）。如果我们分别用V, E, F来表示图中的节点、边与区域的数量，那么欧拉公式认为在平面图中，V-E+F=2。请用归纳法证明。<br><a id="more"></a></p>
+<h1 id="一般的思路"><a href="#一般的思路" class="headerlink" title="一般的思路"></a>一般的思路</h1><p>我们可以尝试对E应用归纳法，然后像内部节点计数的实例一样“向后”推导归纳步骤。其基本情况的设置并不重要（如E=0或者E=1），所以我们假设公式对E=1是成立的。这里考虑任何一种带E条边的平面图的连通图，我们尝试删除某一条边，并假设删除后的这个更小的图依然处于联通状态。由于边的数量减少了一条，势必会有两个区域合二为一，区域的数量也要减一。于是 V-(E-1)+(F-1)=2，这与我们想要证明的公式是等价的。接下来，我们考虑删除一条边之后，图结构不联通的情况。我们可以针对每个联通分量应用该归纳前提，只不过这里会产生两个无限的区域，因此需要做一些相应的抵消的处理。<br>当然，我们也可以对F或者V应用归纳法。</p>
+<h1 id="双重归纳法的思路"><a href="#双重归纳法的思路" class="headerlink" title="双重归纳法的思路"></a>双重归纳法的思路</h1><p>首先证明 证明对于任意树，V+F=E+2。  </p>
+<ol>
+<li>当只有一个节点的时候，显然成立。其中 V=1, F=1, E=0。  </li>
+<li>假设对于n（n&gt;1）个节点的树，V+F=E+2。  </li>
+<li>当节点数为n+1的时候，考虑n到n+1的过程，第n+1的节点应为叶子节点，则有E增加1，V增加1，F不变（为1）。此时 (V+1) + F = (E+1) + 2 依然成立。<br>然后证明 欧拉公式的成立  </li>
+<li>对于任意的树，有 V+F=E+2。</li>
+<li>假设 对于有n个面（F=n）的图，有V+F=E+2成立。</li>
+<li>当图的面变为n+1的时候，存在一个面f，该面与 最外的无穷大的面 相邻，否则，该图为一棵树。对于f，其存在一个环路，又因为原图为连通图，则去掉f的任意一条边，所得的图依然是连通图。此时，该图的面减少1为n，边减少1。由归纳假设可得，V+F=E+2。<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1>这里没有给出严格的证明，只是提供了一个思路。<br>这个双重归纳法，提醒我们化简问题可以使思路更清晰，不要总想着一步搞定。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/归纳法/" rel="tag"># 归纳法</a>
+          
+            <a href="/tags/欧拉公式/" rel="tag"># 欧拉公式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/05/tetris/" rel="next" title="俄罗斯方块">
+                <i class="fa fa-chevron-left"></i> 俄罗斯方块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/12/num-on-the-end-of-car/" rel="prev" title="汽车尾部的数字代表啥？">
+                汽车尾部的数字代表啥？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg" alt="lca">
+          <p class="site-author-name" itemprop="name">lca</p>
+           
+              <p class="site-description motion-element" itemprop="description">行云流水 任意所至</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https:github.com/lcalca1" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:lcalca11@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一般的思路"><span class="nav-number">1.</span> <span class="nav-text">一般的思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双重归纳法的思路"><span class="nav-number">2.</span> <span class="nav-text">双重归纳法的思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束语"><span class="nav-number">3.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lca
+  </span>
+</div>
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="0.4" color="204,0,255"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

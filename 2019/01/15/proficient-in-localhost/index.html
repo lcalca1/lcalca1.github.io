@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="网络,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="第一次将“精通”用在标题里面，以后这就是努力的方向了！我会把 localhost 总结一下，如有错误请批评指正，如有遗漏请指出！谢谢！">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="精通 localhost">
+<meta property="og:url" content="https://lcalca1.github.io/2019/01/15/proficient-in-localhost/index.html">
+<meta property="og:site_name" content="lca">
+<meta property="og:description" content="第一次将“精通”用在标题里面，以后这就是努力的方向了！我会把 localhost 总结一下，如有错误请批评指正，如有遗漏请指出！谢谢！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-23T09:44:06.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="精通 localhost">
+<meta name="twitter:description" content="第一次将“精通”用在标题里面，以后这就是努力的方向了！我会把 localhost 总结一下，如有错误请批评指正，如有遗漏请指出！谢谢！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lcalca1.github.io/2019/01/15/proficient-in-localhost/">
+
+
+
+
+
+  <title>精通 localhost | lca</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?lc_D_a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lca</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿风指引着你前进的道路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            印象
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-basic">
+          <a href="/categories/Basic/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            跬步
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-advanced">
+          <a href="/categories/Advanced/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            千里
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://lcalca1.github.io/2019/01/15/proficient-in-localhost/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lca">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lca">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">精通 localhost</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-15T23:44:25+08:00">
+                2019-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Basic/" itemprop="url" rel="index">
+                    <span itemprop="name">Basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第一次将“精通”用在标题里面，以后这就是努力的方向了！我会把 localhost 总结一下，如有错误请批评指正，如有遗漏请指出！谢谢！<br><a id="more"></a></p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p>localhost 是一个特殊的域名，在 <a href="https://tools.ietf.org/html/rfc6761" target="_blank" rel="noopener">RFC 6761</a> 中对其在域名解析系统(DNS)中的使用做了详细规范：  </p>
+<ul>
+<li>localhost 的 IPv4 或 IPv6 地址查询必须始终解析为相应的环回地址，该地址在单独的标准中指定。</li>
+<li>应用可以自行解析环回地址，或者将他们交由本地解析器机制。</li>
+<li>当名称解析器收到 localhost 的地址（A 或 AAAA）查询时，它应该返回适当的环回地址，以及其他请求的记录类型的请求响应。不应将本地主机的查询转发到缓存名称服务器（caching name servers）。</li>
+<li>为了避免使域名系统根服务器(Domain Name System root servers)负担流量，缓存名称服务器不应请求本地主机的名称服务器记录，也不要向权威名称服务器(authoritative name servers)转发解析。</li>
+<li>DNS 注册商不能在顶级域 localhost 中委派域名。</li>
+<li>在上述规定的前提下，当权威名称服务器收到 ‘localhost’ 查询请求时，应该适当处理。</li>
+</ul>
+<h2 id="数据包处理"><a href="#数据包处理" class="headerlink" title="数据包处理"></a>数据包处理</h2><p>通过 localhost 可以访问自己主机上的网络服务。但是请求使用的是回环网络接口，任何发往回环网络地址的数据包，并不会出现在系统以外，也不会经由路由转发，其处理都在 TCP/IP 协议的链路层实现的，因此也就不受防火墙和网卡的相关限制。这些有点类似于linux中的socket。  </p>
+<p>具有环回源地址或目标地址的数据包，在非环回接口上收到则必须被删除。这种数据包有时被称为火星包。和其他虚假数据包一样，它们可能是恶意的，它们带来的问题可以通过 bogon 滤波避免。  </p>
+<p>fiddler、charles是不能抓到这种请求的，但是可以通过抓包神器 wireshark 抓到，具体配置请移步<a href="https://wiki.wireshark.org/CaptureSetup/Loopback" target="_blank" rel="noopener">这里</a>。</p>
+<h2 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h2><p>MySQL 数据库的版本区分使用主机名 localhost 与使用地址 127.0.0.1 和 ::1。当在应用程序的客户端连接器接口中使用 localhost 作为目标时，MySQL 应用程序编程接口使用 Unix 域套接字连接到数据库，而通过环回接口的 TCP 连接需要直接使用显式地址。使用 127.0.0.0/8 网络地址时，一个值得注意的例外是，它们用在多协议标签交换（MPLS）跟踪路由错误检测中，它们的不可路由属性提供了一种方便的方法来避免向最终用户传送错误数据包。</p>
+<h2 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h2><p>hosts文件包含了IP地址和主机名之间的映射，还包括主机名的别名。在没有域名服务器的情况下，系统上的所有网络程序都通过查询该文件来解析对应于某个主机名的IP地址，否则就需要使用DNS服务程序来解决。通常可以将常用的域名和IP地址映射加入到hosts文件中，实现快速方便的访问。除此之外，host文件还可以用在局域网中以构建映射关系，或者将恶意网站的域名映射到错误 ip 或者本机 ip 上来达到屏蔽的效果。</p>
+<p>配置方法如下：</p>
+<ol>
+<li>首先要保证你具有管理员权限。</li>
+<li>windows下，hosts文件一般的位置为：<code>C:\Windows\System32\drivers\etc</code>。linux下，hosts文件的路径为<code>/etc/hosts</code>。</li>
+<li>hosts文件每行代表一个映射，格式为 <code>IP地址 主机名/域名[ 主机别名]</code>，其中’<code>[ 主机别名]</code>‘不是必须的。例如：<code>202.108.22.5 www.baidu.com</code> 将域名 <code>www.baidu.com</code> 映射到了 <code>202.108.22.5</code>。</li>
+<li>直接使用文本编辑软件修改即可，windows 下可用 txt 编辑器，而 linux 下可使用 vim。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>localhost 的详细规范可参考 <a href="https://tools.ietf.org/html/rfc6761" target="_blank" rel="noopener">RFC 6761</a>。<br><a href="https://en.wikipedia.org/wiki/Localhost" target="_blank" rel="noopener">维基百科英文</a>、<a href="https://zh.wikipedia.org/wiki/Localhost" target="_blank" rel="noopener">维基百科中文</a><br><a href="https://blog.csdn.net/liuruiqun/article/details/45645091" target="_blank" rel="noopener">浅谈localhost</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/08/best-sorting-algorithm/" rel="next" title="史上最秀！时间复杂度 O(1) 的排序算法！">
+                <i class="fa fa-chevron-left"></i> 史上最秀！时间复杂度 O(1) 的排序算法！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/23/markdown-is-good/" rel="prev" title="记事本太轻 WPS太重">
+                记事本太轻 WPS太重 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg" alt="lca">
+          <p class="site-author-name" itemprop="name">lca</p>
+           
+              <p class="site-description motion-element" itemprop="description">行云流水 任意所至</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https:github.com/lcalca1" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:lcalca11@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#规范"><span class="nav-number">1.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据包处理"><span class="nav-number">2.</span> <span class="nav-text">数据包处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊情况"><span class="nav-number">3.</span> <span class="nav-text">特殊情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置方法"><span class="nav-number">4.</span> <span class="nav-text">配置方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lca
+  </span>
+</div>
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="0.4" color="204,0,255"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

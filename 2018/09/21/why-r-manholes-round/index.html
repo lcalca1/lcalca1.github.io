@@ -1,0 +1,816 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="生活,脑洞,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="最近看了点关于产品的书，突然想起来刚毕业的时候有次面试被问到“为什么井盖是圆的”。今天早上蒙蒙胧之中，不知为何就想到了关于井盖这个产品的问题，思路较之前也宽了许多，于是小记一下。">
+<meta name="keywords" content="生活,脑洞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么井盖是圆的？">
+<meta property="og:url" content="https://lcalca1.github.io/2018/09/21/why-r-manholes-round/index.html">
+<meta property="og:site_name" content="lca">
+<meta property="og:description" content="最近看了点关于产品的书，突然想起来刚毕业的时候有次面试被问到“为什么井盖是圆的”。今天早上蒙蒙胧之中，不知为何就想到了关于井盖这个产品的问题，思路较之前也宽了许多，于是小记一下。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://os6prdnzj.bkt.clouddn.com/image/%E6%96%B9%E4%BA%95.png">
+<meta property="og:updated_time" content="2019-06-23T09:44:06.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么井盖是圆的？">
+<meta name="twitter:description" content="最近看了点关于产品的书，突然想起来刚毕业的时候有次面试被问到“为什么井盖是圆的”。今天早上蒙蒙胧之中，不知为何就想到了关于井盖这个产品的问题，思路较之前也宽了许多，于是小记一下。">
+<meta name="twitter:image" content="http://os6prdnzj.bkt.clouddn.com/image/%E6%96%B9%E4%BA%95.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lcalca1.github.io/2018/09/21/why-r-manholes-round/">
+
+
+
+
+
+  <title>为什么井盖是圆的？ | lca</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?lc_D_a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lca</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿风指引着你前进的道路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            印象
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-basic">
+          <a href="/categories/Basic/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            跬步
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-advanced">
+          <a href="/categories/Advanced/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            千里
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://lcalca1.github.io/2018/09/21/why-r-manholes-round/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lca">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lca">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">为什么井盖是圆的？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T17:13:17+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced/" itemprop="url" rel="index">
+                    <span itemprop="name">Advanced</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近看了点关于产品的书，突然想起来刚毕业的时候有次面试被问到“为什么井盖是圆的”。今天早上蒙蒙胧之中，不知为何就想到了关于井盖这个产品的问题，思路较之前也宽了许多，于是小记一下。<br><a id="more"></a><br>对于井盖这个产品，一定是先有井后有井盖的，所以我们先来说一下井。  </p>
+<h3 id="井和井盖"><a href="#井和井盖" class="headerlink" title="井和井盖"></a>井和井盖</h3><p>最早时候，井指的都是水井，是人们用来取水的地方。我在网上翻阅了一下，古时候打井的工具叫做蝴蝶锥，锥的头部形状像现在的冰镩，上部有两个形似蝴蝶的泥斗，锥头在钻井的同时也把泥沙带进了泥斗里，装满后拉出地面进行清理。可以猜测，打井打出不规则的形状是最容易的，随便挖嘛，对不对。可是打井光挖不行，挖完之后一般还要对井壁进行加固、夯实，随后还要建造井壁。这个过程中，不规则形状是十分不方便的，而圆形不仅方便夯实，而且利于建造井壁。这么看来，水井做成圆形是最方便实用的。  </p>
+<p>说完了井，我们再说下井盖。井盖一词在文献上记载的非常之少，几乎找寻不到，在我看过的文献里，有一个文献记录了没有井盖而引发的事故，而且还是关系一个国家命运的大事故。  </p>
+<p>这口井的名字叫做“八角琉璃井”，它的位置在“乌鸡国御花园”。  </p>
+<blockquote>
+<p>且说乌鸡国五年前，天年干旱，草子不生，民皆饥死，甚是伤情。乃仿效禹王治水，与万民同受甘苦，沐浴斋戒，昼夜焚香祈祷。如此三年，只干得河枯井涸。正都在危急之处，忽然锺南山来了一个全真，能呼风唤雨，点石成金。……请他登坛祈祷，果然有应，只见令牌响处，顷刻间大雨滂沱。寡人只望三尺雨足矣，他说久旱不能润泽，又多下了二寸。朕见他如此尚义，就与他八拜为交，以兄弟称之。……朕与他同寝食者，只得二年。又遇着阳春天气……朕与那全真携手缓步，至御花园里，忽行到八角琉璃井边，不知他抛下些什么物件，井中有万道金光。哄朕到井边看甚么宝贝，他陡起凶心，扑通的把寡人推下井内，将石板盖住井口，拥上泥土，移一株芭蕉栽在上面。可怜我啊，已死去三年，是一个落井伤生的冤屈之鬼也！”<br>——《西游记》 “鬼王夜谒唐三藏 悟空神化引婴儿” </p>
+</blockquote>
+<p>没有井盖竟然害了一个国家！从那以后，政府规定，井必须有自己的井盖，蓄意破坏井盖需要罚款并拘留，严重者还可以按照《刑法》中对危害公共安全罪的规定进行惩处。<br><img src="http://os6prdnzj.bkt.clouddn.com/image/%E6%96%B9%E4%BA%95.png" alt="小亭子井盖"></p>
+<h3 id="地窖"><a href="#地窖" class="headerlink" title="地窖"></a>地窖</h3><p>以前每家每户不一定有井，但是每家每户都可能会有地窖，用以存储东西。地窖和井比较相像，甚至有些地窖是干枯后的水井。我记得小时候姨奶家的狗下小崽的时候，为了给小狗仔保温，就把生下来的狗崽们放到地窖里面。虽然地窖口一般在院子的角落，但是为了安全，一般都会有盖子，可以勉强算是井盖吧。这些盖子就比较随意了：旧门板、床板、水泥板、铁板、坏篱笆等等，形状也是各异。因为每家做自己的盖子，不需要长途搬运，也不需要多么雅致，所以盖子比较随意。但是如果现在要给这个需求生产提供盖子，你会做成什么形状的呢？在此先按下不表，后续再做介绍。</p>
+<h3 id="城市中的井盖"><a href="#城市中的井盖" class="headerlink" title="城市中的井盖"></a>城市中的井盖</h3><p>现在城市之中处处可以看到井，那么这些井是作何之用呢？街道上的路面上的井叫窨井，其作用为检查、检修及其他作用，包括检查井、工作井等。窨井是用在排水管道的转弯、分支、跌落等处，以便于检查、疏通用的井，学名叫检查井。同理，埋设在地下的电讯电缆检查井、电力电缆检查井，也叫窨井。由于井分布各处，井盖是必不可少的了。那么问题来了，井盖为什么是圆的？</p>
+<ul>
+<li>行人车辆：我们不怎么太关心井盖的形状，不过见过的井盖一般都是圆的。对我们来说，井盖是否平坦，是否完整，是否结实，这些安全因素才是最重要的。不过特殊形状的井盖和井盖上绘制的图案倒是一道靓丽的风景线，甚至可以作为一个地方的名片呢。</li>
+<li>施工人员：我们主要是搬运、安装、维护井盖。如果是车辆搬运，方形的井盖比较好，不仅可以充分利用车辆空间，而且容易在一个平面上固定，不易晃动，这样减少了运输途中的损耗；但是如果是个人搬运，圆形井盖一个人滚动就可移动，方形井盖通常需要两人抬动。安装的时候，方形井盖又不如圆形井盖了，方形井盖必须至少对齐两个角才能正确安装，圆形井盖用脚踢到中央就可以了。</li>
+<li>生产商：我们的生产线，一条流水线只能出一种形状的井盖，主要看客户需求。如果有一天客户需要大量的不规则形状井盖，我们也要加模具给生产出来。  </li>
+</ul>
+<p>听了这么多，我突然有所感悟，为什么井盖是圆的，其实你是在问，为什么大多数井盖是圆的，因为大多数井是圆的呀！  </p>
+<p>那么问题来了，井为什么是圆的？</p>
+<h3 id="刚才的问题"><a href="#刚才的问题" class="headerlink" title="刚才的问题"></a>刚才的问题</h3><p>现在我们回到“地窖盖子”的问题上，如果给家乡设计井盖，你会选择什么形状？考虑到普适性，形状越少越好，这样生产资料的投入就会少一些，就越容易回本，哈哈。但是同时呢，又需要满足家乡的地窖的各种大小。我呢，会选择把盖子生产为长方形的，而且是长度稍长，宽度稍窄的长条形，并且两个长边之间可以拼接。当然，这个长度的选择应该先去实地考察一下。这样，根据地窖口的大小，可以使用不同数量的盖子进行拼接安装。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>说不定，随着发展，以后井盖上会有其他功能，比如说通风装置、过滤装置、传送装置。那个时候，新的问题又要出现了，为什么要通过井盖传送？</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/生活/" rel="tag"># 生活</a>
+          
+            <a href="/tags/脑洞/" rel="tag"># 脑洞</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/12/num-on-the-end-of-car/" rel="next" title="汽车尾部的数字代表啥？">
+                <i class="fa fa-chevron-left"></i> 汽车尾部的数字代表啥？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/02/ez-rm/" rel="prev" title="使用 rm -rf 再也不用担心">
+                使用 rm -rf 再也不用担心 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg" alt="lca">
+          <p class="site-author-name" itemprop="name">lca</p>
+           
+              <p class="site-description motion-element" itemprop="description">行云流水 任意所至</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https:github.com/lcalca1" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:lcalca11@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#井和井盖"><span class="nav-number">1.</span> <span class="nav-text">井和井盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地窖"><span class="nav-number">2.</span> <span class="nav-text">地窖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#城市中的井盖"><span class="nav-number">3.</span> <span class="nav-text">城市中的井盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刚才的问题"><span class="nav-number">4.</span> <span class="nav-text">刚才的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lca
+  </span>
+</div>
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="0.4" color="204,0,255"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

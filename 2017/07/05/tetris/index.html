@@ -1,0 +1,1208 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="小游戏,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="今天突然想起了猜飞机的游戏，然后想着先找个经典游戏放进来试一下~">
+<meta name="keywords" content="小游戏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="俄罗斯方块">
+<meta property="og:url" content="https://lcalca1.github.io/2017/07/05/tetris/index.html">
+<meta property="og:site_name" content="lca">
+<meta property="og:description" content="今天突然想起了猜飞机的游戏，然后想着先找个经典游戏放进来试一下~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-23T09:44:06.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="俄罗斯方块">
+<meta name="twitter:description" content="今天突然想起了猜飞机的游戏，然后想着先找个经典游戏放进来试一下~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lcalca1.github.io/2017/07/05/tetris/">
+
+
+
+
+
+  <title>俄罗斯方块 | lca</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?lc_D_a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lca</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿风指引着你前进的道路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            印象
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-basic">
+          <a href="/categories/Basic/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            跬步
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-advanced">
+          <a href="/categories/Advanced/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            千里
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://lcalca1.github.io/2017/07/05/tetris/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lca">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lca">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">俄罗斯方块</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T11:28:55+08:00">
+                2017-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced/" itemprop="url" rel="index">
+                    <span itemprop="name">Advanced</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天突然想起了猜飞机的游戏，然后想着先找个经典游戏放进来试一下~<br><a id="more"></a></p>
+<p><html></html></p>
+<p></p><p style="text-align: center;">操作：↑变形；↓下移；←左移；→右移</p><p></p>
+<p><canvas id="canvas" width="640" height="600" style="background: #272822;margin: 0 auto;display: block;"><br>  您的浏览器不支持canvas！<br></canvas><br></p>
+<script>
+/****************************
+*积分随关卡递增
+*初始化部分historyBlock
+****************************/
+var tetris = {
+  canvas : document.getElementById("canvas"),
+  ctx : this.canvas.getContext("2d"),
+  width : 481,
+  height : 600,
+  logLen: 8,
+  mapColor: "#464741",
+  logColor: "green",
+  status: 'ready',
+  unit : 30,
+  curText : "开始",
+  blockData : function(index, row, col){
+    var r = row || 1,
+      c = col || Math.floor((this.col - 3)/2) + 2,
+      block = [
+        [
+          {color: 'red', status: 1, data: [{x: r, y:c-1}, {x: r+1, y:c-1}, {x: r+1, y:c}, {x: r+1, y:c+1}], center: {x: r, y: c}},
+          {color: 'red', status: 2, data: [{x: r-1, y:c-1}, {x: r-1, y:c}, {x: r, y:c-1}, {x: r+1, y:c-1}], center: {x: r, y: c}},
+          {color: 'red', status: 3, data: [{x: r-1, y:c-1}, {x: r-1, y:c}, {x: r-1, y:c+1}, {x: r, y:c+1}], center: {x: r, y: c}},
+          {color: 'red', status: 4, data: [{x: r-1, y:c+1}, {x: r, y:c+1}, {x: r+1, y:c+1}, {x: r+1, y:c}], center: {x: r, y: c}}
+        ],
+        [
+          {color: 'green', status: 1, center: {x: r, y:c}, data: [{x: r, y:c+1}, {x: r+1, y:c-1}, {x: r+1, y:c}, {x: r+1, y:c+1}]},
+          {color: 'green', status: 2, center: {x: r, y:c}, data: [{x: r-1, y:c-1}, {x: r, y:c-1}, {x: r+1, y:c-1}, {x: r+1, y:c}]},
+          {color: 'green', status: 3, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r-1, y:c-1}, {x: r-1, y:c}, {x: r-1, y:c+1}]},
+          {color: 'green', status: 4, center: {x: r, y:c}, data: [{x: r-1, y:c}, {x: r-1, y:c+1}, {x: r, y:c+1}, {x: r+1, y:c+1}]}
+        ],
+        [
+          {color: 'blue', status: 1, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r+1, y:c}, {x: r+1, y:c+1}]},
+          {color: 'blue', status: 2, center: {x: r, y:c}, data: [{x: r+1, y:c-1}, {x: r, y:c-1}, {x: r, y:c}, {x: r-1, y:c}]}
+        ],
+        [
+          {color: 'orange', status: 1, center: {x: r, y:c}, data: [{x: r+1, y:c-1}, {x: r+1, y:c}, {x: r, y:c}, {x: r, y:c+1}]},
+          {color: 'orange', status: 2, center: {x: r, y:c}, data: [{x: r-1, y:c}, {x: r, y:c}, {x: r, y:c+1}, {x: r+1, y:c+1}]}
+        ],
+        [
+          {color: 'yellow', status: 1, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r+1, y:c-1}, {x: r+1, y:c}]}
+        ],
+        [
+          {color: 'aqua', status: 1, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r, y:c+1}, {x: r-1, y:c}]},
+          {color: 'aqua', status: 2, center: {x: r, y:c}, data: [{x: r+1, y:c}, {x: r, y:c}, {x: r, y:c+1}, {x: r-1, y:c}]},
+          {color: 'aqua', status: 3, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r, y:c+1}, {x: r+1, y:c}]},
+          {color: 'aqua', status: 4, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r+1, y:c}, {x: r-1, y:c}]}
+        ],
+        [
+          {color: 'indigo', status: 1, center: {x: r, y:c}, data: [{x: r, y:c-1}, {x: r, y:c}, {x: r, y:c+1}, {x: r, y:c+2}]},
+          {color: 'indigo', status: 2, center: {x: r, y:c}, data: [{x: r-2, y:c}, {x: r-1, y:c}, {x: r, y:c}, {x: r+1, y:c}]}
+        ]
+      ]
+    return block[index];
+  },
+  init : function(){
+    var self = this;
+    self.reset();
+    self.addEvent("keydown", window, function(ev){
+      var ev = ev || window.event,
+        code = ev.keycode || ev.which;
+      if(self.handle[code] && self.status === "play"){
+        self.handle[code].call(self);
+        self.createMap();
+        ev.preventDefault();
+      }
+    })
+    self.addEvent("click", document, function(ev){
+      self.createMap(ev);
+    })
+    return this;
+  },
+  reset: function(){
+    var self = this;
+    self.score = 0;
+    self.speed = 1000;
+    self.log = [];
+    self.historyBlock = [];
+    self.row = Math.floor(self.height/self.unit);
+    self.col = Math.floor(self.width/self.unit);
+    self.curBlockIndex = Math.round(Math.random()*6);
+    self.curBlocks = self.blockData(self.curBlockIndex);
+    self.curBlock = self.curBlocks[0];
+    self.createNext().createMap();
+    return this;
+  },
+  createNext: function(){
+    var self = this;
+    self.nextBlockIndex = self.status === "ready" ? self.curBlockIndex : Math.round(Math.random()*6);
+    self.nextBlocks = self.blockData(self.nextBlockIndex, 4, self.col+3);
+    self.nextBlock = self.nextBlocks[0];
+    return this;
+  },
+  addEvent : function(ev, ele, callback){
+    if( ele.addEventListener ){
+      ele.addEventListener(ev,callback,false);
+    }else{
+      ele.attachEvent("on"+ev, callback);
+    }
+  },
+  createMap : function(ev){
+    var self = this,
+      ctx = self.ctx;
+    ctx.clearRect(0, 0, self.canvas.width, self.canvas.height);
+    for (var i = 0; i < self.col; i++) {
+      for (var j = 0; j < self.row; j++) {
+        ctx.save();
+        ctx.strokeStyle = self.mapColor;
+        ctx.strokeRect(i*self.unit, j*self.unit, self.unit, self.unit);
+        ctx.stroke();
+        ctx.restore();
+      };
+    };
+    self.showText(ev).createBlock().createLog();
+    if(self.status !== "ready"){
+      self.drawRect(self.curBlock.data);
+    }
+    return this;
+  },
+  createBlock : function(){
+    var self = this,
+      block = self.curBlock.data;
+    self.drawRect(self.historyBlock);
+    if(self.collide(40, true)){
+      block.map(function(val){
+        val.x--;
+      })
+      setTimeout(function(){
+        clearInterval(self.timer);
+        if(localStorage.getItem("score") === null){
+          localStorage.setItem("score", self.score);
+        }else if(localStorage.getItem("score") - self.score < 0 ){
+          localStorage.setItem("score", self.score);
+          alert("新纪录！"+self.score+"分！");
+          self.printLog({log:"新纪录！"+self.score+"分！", color: 'red'});
+          return;
+        }
+        self.status = "over";
+        self.curText = "重来";
+        self.showText();
+        self.printLog({log:"GAME OVER", color: 'red'});
+      },10)
+    }
+    return this;
+  },
+  drawRect : function(block){
+    var self = this;
+    for (var i = 0; i < block.length; i++) {
+      self.ctx.save();
+      self.ctx.fillStyle = block[i].color || self.curBlock.color;
+      self.ctx.strokeStyle = self.mapColor;
+      self.ctx.fillRect((block[i].y - 1)*self.unit, (block[i].x - 1)*self.unit, self.unit, self.unit );
+      self.ctx.strokeRect((block[i].y - 1)*self.unit, (block[i].x - 1)*self.unit, self.unit, self.unit );
+      self.ctx.restore();
+    };
+  },
+  move : function(){
+    var self = this;
+    clearInterval(self.timer);
+    self.timer = setInterval(function(){
+      // 实时刷新数据 大坑！
+      var curBlock = self.curBlock,
+        data = self.curBlock.data;
+      if( self.collide() || data.some(function(val){
+        return val.x + 1 > self.row;
+      }) ){
+        clearInterval(self.timer);
+        self.historyBlock.push.apply(self.historyBlock, data.map(function(val){
+            val.color = curBlock.color;
+            return val;
+        }));
+        self.remove();
+        self.curBlockIndex = self.nextBlockIndex;
+        self.curBlocks = self.blockData(self.curBlockIndex);
+        self.curBlock = self.curBlocks[0];
+        self.createNext().createMap().move();
+        return false;
+      }
+      for (var i = 0; i < data.length; i++) {
+        data[i].x++;
+      };
+      self.curBlock.center.x++;
+      self.createMap();
+    }, self.speed)
+    return this;
+  },
+  remove : function(){
+    var self = this,
+      count = {},
+      n = 0,
+      maxRow = 0,
+      delArr = [],
+      block = self.historyBlock;
+    for (var i = 0; i < block.length; i++) {
+      if(count[block[i].x]){
+        count[block[i].x].length += 1;
+      }else{
+        count[block[i].x] = [1];
+      }
+    };
+    console.log( count )
+    for (var attr in count) {
+      if(count[attr].length === self.col){
+        n++;
+        //maxRow = attr > maxRow ? attr : maxRow;
+        for (var i = 0; i < block.length; i++) {
+          if(block[i].x == attr){
+            delArr = block.splice(i, 1);
+            i--;
+          }
+        };
+        count[attr].length = 0;
+        block.forEach(function(val){
+          val.x < attr && (val.x += 1);
+        })
+      }
+    };
+    // 边消除边下降会死循环
+    if(n > 0){
+      self.score += n*100;
+      self.printLog("得分+"+n*100);
+      // 一次消除3行奖励100分
+      if(n === 3){
+        self.score += 100;
+        self.printLog("奖励"+100+"分~");
+      }
+      // 一次消除4行奖励200分
+      if(n === 4){
+        self.score += 200;
+        self.printLog("奖励"+200+"分~");
+      }
+      /*block.forEach(function(val){
+        val.x < maxRow && (val.x += n);
+      })*/
+      self.changeSpeed();
+    }
+  },
+  changeSpeed: function(){
+    var self = this;
+    if( self.score >= 3000 && self.score < 5000 ){
+      self.speed = 800;
+    }else if( self.score >= 5000 && self.score < 10000 ){
+      self.speed = 600;
+      self.score += 100;
+    }else if( self.score >= 10000 && self.score < 20000 ){
+      self.speed = 400;
+      self.score += 150;
+    }else if( self.score >= 20000 && self.score < 40000 ){
+      self.speed = 200;
+      self.score += 200;
+    }else if( self.score >= 40000 ){
+      self.speed = 100;
+      self.score += 300;
+    }
+    return this;
+  },
+  collide : function(direction, isCreate){
+    var block = JSON.parse(JSON.stringify(this.curBlock)),
+      result = false,
+      self = this;
+    direction = direction || 40;
+    // direction:碰撞方向，默认下方
+    if(direction === 37){
+      self.mLeft(block);
+    }else if(direction === 38){
+      block = self.distortion(block);
+    }else if(direction === 39){
+      self.mRight(block);
+    }else if(direction === 40 && !isCreate){
+      // 非新增方块则往下移动一格
+      block.data.forEach(function(val){
+        val.x++;
+      })
+    }
+    result = block.data.some(function(val){
+      return (val.x > self.row || val.y < 1 || val.y > self.col);
+    })
+    if(result){
+      return result;
+    }else{
+      return block.data.some(function(val){
+        return self.historyBlock.some(function(value){
+          return (value.x === val.x && value.y === val.y);
+        })
+      })
+    }
+  },
+  mLeft : function(block){
+    if(block.data.every(function(val){
+      return val.y - 1 >= 1;
+    })){
+      block.data.forEach(function(val){
+        val.y--;
+      })
+      block.center.y--;
+    }
+  },
+  mRight : function(block){
+    var self = this;
+    if(block.data.every(function(val){
+      return val.y + 1 <= self.col;
+    })){
+      block.data.forEach(function(val){
+        val.y++;
+      })
+      block.center.y++;
+    }
+  },
+  distortion : function(block){
+    var self = this,
+      curRow = block.center.x,
+      curCol = block.center.y,
+      status = block.status + 1 > self.curBlocks.length ? 1 : block.status + 1;
+    self.curBlocks = self.blockData(self.curBlockIndex, block.center.x, block.center.y);
+    return self.curBlocks[status-1];
+  },
+  // 控制：上（变形）、右（右移）、下（下移）、左（左移）
+  handle : {
+    // 左键 code 37
+    37: function(){
+      var self = this;
+      if(!self.collide(37)){
+        self.mLeft(self.curBlock);
+      }
+    },
+    // 上键 code 38
+    38: function(){
+      var self = this;
+      if(!self.collide(38)){
+        self.curBlock = self.distortion(self.curBlock);
+      }
+    },
+    // 右键 code 39
+    39: function(){
+      var self = this;
+      if(!self.collide(39)){
+        self.mRight(self.curBlock);
+      }
+    },
+    // 下键 code 40
+    40: function(){
+      var self = this;
+      if(!self.collide()){
+        self.curBlock.data.forEach(function(val){
+          val.x++;
+        })
+        self.curBlock.center.x++;
+      }
+    }
+  },
+  showText: function(ev){
+    var self = this,
+      ctx = self.ctx;
+    ctx.clearRect(self.width, 0, self.canvas.width - self.width, self.height);
+    ctx.save();
+    ctx.beginPath();
+    ctx.font = "20px Verdana";
+    ctx.fillStyle = "green";
+    ctx.fillText("下一个:", self.width+10, 30);
+    ctx.fillText("分数:", self.width+10, 200);
+    ctx.fillText("速度:", self.width+10, 260);
+    //ctx.fillText("王美建", self.width+10, 580);
+    ctx.fillStyle = "red";
+    ctx.fillText(self.score, self.width+10, 230);
+    ctx.fillText(self.speed + "毫秒", self.width+10, 290);
+    ctx.fillStyle = "green";
+    ctx.fillRect(self.width + 30, 320, 100, 40);
+    // isPointInPath对fillRect()兼容不好 又一个大坑！
+    ctx.rect(self.width + 30, 320, 100, 40);
+    if( ev ){//&& ctx.isPointInPath(ev.layerX, ev.layerY) ){
+      switch(self.status){
+        case "ready":
+        self.status = "play";
+        self.curText = "暂停";
+        self.log = ["开始游戏."];
+        self.createNext().move();
+        break;
+        case "play":
+        self.status = "paush";
+        self.curText = "继续";
+        clearInterval(self.timer);
+        self.printLog("暂停.");
+        break;
+        case "paush":
+        self.status = "play";
+        self.curText = "暂停";
+        self.printLog("继续游戏~");
+        self.move();
+        break;
+        case "over":
+        self.status = "play";
+        self.curText = "暂停";
+        self.reset().move();
+        self.printLog("开始游戏~");
+        break;
+      }
+    }
+    ctx.fillStyle = "black";
+    ctx.fillText(self.curText, self.width+60, 350);
+    ctx.restore();
+    ctx.closePath();
+    self.nextBlock.data.forEach(function(val){
+      val.color = self.nextBlock.color;
+    })
+    self.drawRect(self.nextBlock.data);
+    return this;
+  },
+  printLog: function(log){
+    var self = this;
+    if(log){
+      self.log.unshift(log);
+      self.log.length > self.logLen && (self.log.length = self.logLen);
+    }
+    self.createLog();
+    return this;
+  },
+  createLog: function(){
+    var self = this,
+      ctx = self.ctx;
+    // 清除log
+    ctx.clearRect(self.width+10, 380, 136, 170);
+    self.log.forEach(function(val, index){
+      if(val){
+        ctx.save();
+        ctx.font = "16px Verdana";
+        ctx.fillStyle = val.color || self.logColor,
+        ctx.fillText(val.log || val, self.width+10, 400+index*22);
+        ctx.restore();
+      }
+    })
+    return this;
+  }
+}
+tetris.init();
+</script>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小游戏/" rel="tag"># 小游戏</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/03/Codes-for-noise-pollutant/" rel="next" title="噪声污染物名称代码">
+                <i class="fa fa-chevron-left"></i> 噪声污染物名称代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/23/proof-of-euler-theorem-with-induction/" rel="prev" title="欧拉公式的归纳证明">
+                欧拉公式的归纳证明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://os6prdnzj.bkt.clouddn.com/image/cat.jpg" alt="lca">
+          <p class="site-author-name" itemprop="name">lca</p>
+           
+              <p class="site-description motion-element" itemprop="description">行云流水 任意所至</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https:github.com/lcalca1" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:lcalca11@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lca
+  </span>
+</div>
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="0.4" color="204,0,255"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
